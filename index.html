@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محمد بشار باسل جمعة</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .logo {
+            width: 220px;
+            max-width: 80%;
+            margin-bottom: 15px;
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.1s;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .whatsapp {
+            background: #25D366;
+        }
+
+        .email {
+            background: #1e6fff;
+        }
+
+        .shamcash {
+            background: #7b3fe4;
+        }
+
+        /* نافذة QR */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #111;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            max-width: 360px;
+            width: 100%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .close {
+            position: absolute;
+            top: 8px;
+            left: 12px;
+            font-size: 28px;
+            color: #fff;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="mbj-logo.jpg" alt="MBJ Logo" class="logo">
+
+        <div class="name">محمد بشار باسل جمعة</div>
+
+        <a href="https://wa.me/963934532008" target="_blank" class="btn whatsapp">
+            التواصل عبر واتساب
+        </a>
+
+        <a href="mailto:jumaab862@gmail.com" class="btn email">
+            التواصل عبر الإيميل
+        </a>
+
+        <button class="btn shamcash" onclick="openModal()">
+            الدفع عبر شام كاش
+        </button>
+    </div>
+
+    <!-- نافذة QR -->
+    <div class="modal" id="qrModal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal(true)">&times;</button>
+            <img src="sham-cash-qr.jpg" alt="QR شام كاش">
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("qrModal").classList.add("show");
+        }
+
+        function closeModal(event) {
+            const modal = document.getElementById("qrModal");
+            if (event === true || event.target === modal) {
+                modal.classList.remove("show");
+            }
+        }
+    </script>
+
+</body>
+</html>
